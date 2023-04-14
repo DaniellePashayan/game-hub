@@ -2,10 +2,18 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { CanceledError } from "axios";
 
+export interface Platform {
+  id: number;
+  name: string;
+  slug: string;
+}
+
 export interface Game {
   id: number;
   name: string;
   background_image: string;
+  parent_platforms: {platform : Platform}[]
+  // in chrome devtools. you can see that the paltforms listed under parent platforms are not platforms objects
 }
 
 interface FetchGamesResposne {
