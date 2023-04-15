@@ -1,4 +1,5 @@
 import useData from "./useData";
+import { Genre } from "./useGenres";
 
 export interface Platform {
   id: number;
@@ -15,6 +16,9 @@ export interface Game {
   // in chrome devtools. you can see that the paltforms listed under parent platforms are not platforms objects
 }
 
-const useGames = () => useData<Game>('/games')
+const useGames = (selectedGenre: Genre | null) =>
+  useData<Game>("/games", { params: { genres: selectedGenre?.id } }, [
+    selectedGenre?.id,
+  ]);
 
 export default useGames;
