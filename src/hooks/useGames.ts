@@ -13,6 +13,7 @@ export interface Game {
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  rating_top: number;
   // in chrome devtools. you can see that the paltforms listed under parent platforms are not platforms objects
 }
 
